@@ -49,6 +49,15 @@ class StudentServiceTest {
         assertEquals("Amira", result.get(0).getFirstName());
         verify(studentRepository, times(1)).findAll();
     }
+    @Test
+    void getAllStudents_sansEtudiant_retourneListeVide() {
+        when(studentRepository.findAll()).thenReturn(List.of());
+
+        List<Student> result = studentService.getAllStudents();
+
+        assertTrue(result.isEmpty());
+        verify(studentRepository, times(1)).findAll();
+    }
 
     @Test
     void getStudentById_existant_retourneLEtudiant() {
