@@ -45,7 +45,7 @@ class StudentServiceTest {
 
         List<Student> result = studentService.getAllStudents();
 
-        assertEquals(1, result.size());
+        assertEquals(2, result.size()); // faux (attendu : 1)        
         assertEquals("Amira", result.get(0).getFirstName());
         verify(studentRepository, times(1)).findAll();
     }
